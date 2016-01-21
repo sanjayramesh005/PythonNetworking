@@ -1,0 +1,14 @@
+#This client doenot send the server any data. It only receives data.
+import socket
+
+clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+host = '172.24.129.239'
+port = 1234
+
+clientsocket.connect((host,port))
+
+data = clientsocket.recv(1024)
+
+clientsocket.close()
+
+print "The time obtained from the server is ", data#.decode('ascii')
