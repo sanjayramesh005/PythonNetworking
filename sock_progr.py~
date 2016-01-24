@@ -15,11 +15,8 @@ print "Server started. Waiting for client...."
 
 while True:
     clientsocket, addr = serversocket.accept()#establish connection
-    clientsocket.recv(1024)
+    clientsocke.recv(1024)
     print "Got a connection from", addr
-    filehandle = open('sanjay .html','r')
-    html = filehandle.readline()
-    while html:
-        clientsocket.sendall(html)
-        html = filehandle.readline()
+    currentTime = time.ctime(time.time()) + "\r\n"
+    clientsocket.sendall("Hello World!!!")
     clientsocket.close()
